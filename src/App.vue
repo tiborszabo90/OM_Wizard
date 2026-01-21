@@ -16,32 +16,35 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-6">
+  <div class="min-h-screen bg-white flex items-center justify-center p-6">
     <div class="w-full max-w-md">
       <!-- Logo / Branding -->
       <div class="text-center mb-10">
-        <h1 class="text-3xl font-bold text-white mb-2">OM Wizard</h1>
-        <p class="text-slate-400">Add meg a domain neved a kezdéshez</p>
+        <img
+          src="https://www.optimonk.com/wp-content/uploads/optimonk-logo-2024.svg"
+          alt="OptiMonk"
+          class="h-8 mx-auto mb-6"
+        />
+        <h1 class="text-3xl font-bold text-gray-900 mb-3">AI Popup Wizard</h1>
+        <p class="text-gray-500">Generate on-brand popups for your website in 60 seconds.</p>
       </div>
 
-      <!-- Card -->
-      <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-8">
-        <form @submit.prevent="handleSubmit" class="space-y-6">
+      <form @submit.prevent="handleSubmit" class="space-y-6">
           <!-- Domain input -->
           <div>
-            <label for="domain" class="block text-sm font-medium text-slate-300 mb-2">
-              Domain
+            <label for="domain" class="block text-sm font-medium text-gray-700 mb-2">
+              What's your domain?
             </label>
             <div class="relative">
-              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                 https://
               </span>
               <input
                 id="domain"
                 v-model="domain"
                 type="text"
-                placeholder="example.com"
-                class="w-full pl-20 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                placeholder="Enter website URL"
+                class="w-full pl-20 pr-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
               />
             </div>
           </div>
@@ -49,8 +52,7 @@ const handleSubmit = () => {
           <!-- Submit button -->
           <button
             type="submit"
-            :disabled="!domain.trim() || isLoading"
-            class="w-full py-3 px-6 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+            class="w-full py-3 px-6 bg-[#ED5A29] text-white font-semibold rounded-xl hover:bg-[#d94f22] focus:outline-none focus:ring-2 focus:ring-[#ED5A29] focus:ring-offset-2 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#ED5A29]/25"
           >
             <svg
               v-if="isLoading"
@@ -62,14 +64,13 @@ const handleSubmit = () => {
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <span>{{ isLoading ? 'Feldolgozás...' : 'Tovább' }}</span>
+            <span>{{ isLoading ? 'Loading...' : 'Get recommendations' }}</span>
           </button>
         </form>
-      </div>
 
       <!-- Footer text -->
-      <p class="text-center text-slate-500 text-sm mt-6">
-        A domain megadásával elfogadod a felhasználási feltételeket
+      <p class="text-center text-gray-400 text-sm mt-6">
+        No email address needed.
       </p>
     </div>
   </div>
